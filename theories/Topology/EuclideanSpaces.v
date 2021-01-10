@@ -5,10 +5,12 @@
    Does every compact manifold (or topological-space (maybe Hausdorff is necessary)) admit a uniform probability distribution?
 *)
 
+Require Import FunctionalExtensionality.
+Require Import RTopology.
 Require Import Vector.
 Require Import ProductTopology.
-Require Import RTopology.
-Require Import FunctionalExtensionality.
+Require Import Ensembles.
+Require Import Compactness.
 
 (* Using [Fin.t] instead of repeated application of ProductTopology2 makes that we don’t have to consider associativity. Using [Vector] instead of [ProductTopology] makes that we don’t have to always consider functional extensionality. *)
 Definition FiniteProduct (A : TopologicalSpace) (n : nat) :=
@@ -145,7 +147,6 @@ Definition EuclideanSpace_scalarproduct {n : nat} (x y : point_set (EuclideanSpa
 
 Program Definition EuclideanSpace_scalarproduct_self_nonneg {n : nat} (x : point_set (EuclideanSpace n)) : nonnegreal :=
   {| nonneg := EuclideanSpace_scalarproduct x x; |}.
-Proof.
 Next Obligation.
   unfold EuclideanSpace_scalarproduct.
   induction x.
