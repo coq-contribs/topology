@@ -303,7 +303,7 @@ Lemma compact_Subspace (X : TopologicalSpace) (S : Ensemble (point_set X)) :
     (forall U, In C U -> open U) ->
     FamilyUnion C = Full_set ->
     exists C',
-      Finite _ C' /\ Included C' C /\ Included S (FamilyUnion C').
+      Finite C' /\ Included C' C /\ Included S (FamilyUnion C').
 Proof.
   intros.
   unshelve edestruct H as [C'].
