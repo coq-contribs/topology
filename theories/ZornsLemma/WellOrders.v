@@ -8,6 +8,8 @@ From ZornsLemma Require Import ZornsLemma.
 From Coq Require Import ProofIrrelevance.
 From ZornsLemma Require Import EnsemblesSpec.
 
+Export Set Universe Polymorphism.
+
 Section WellOrder.
 
 (* this definition is for the strict order, e.g. the

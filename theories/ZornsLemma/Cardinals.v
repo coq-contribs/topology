@@ -13,6 +13,8 @@ From ZornsLemma Require Import CountableTypes.
 From ZornsLemma Require Import FiniteTypes.
 From ZornsLemma Require Import InfiniteTypes.
 
+Export Set Universe Polymorphism.
+
 Inductive Cardinal : Type :=
   | cardinality: Type -> Cardinal.
 
