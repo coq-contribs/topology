@@ -11,6 +11,7 @@ Require Import Vector.
 Require Import ProductTopology.
 Require Import Ensembles.
 Require Import Compactness.
+Require Import Psatz.
 
 (* Using [Fin.t] instead of repeated application of ProductTopology2 makes that
    we don’t have to consider associativity. Using [Vector] instead of
@@ -220,7 +221,8 @@ Lemma Rsqr_zero (x : R) :
   Rsqr x = 0 ->
   x = 0.
 Proof.
-Admitted.
+  apply Rsqr_0_uniq.
+Qed.
 
 Lemma Rsqrt_zero (x : nonnegreal) :
   nonneg x = 0 ->
@@ -501,12 +503,7 @@ Theorem Sphere_compact (n : nat) : compact (Sphere n).
     rewrite EuclideanSpace_opp_zero.
     rewrite EuclideanSpace_add_zero_r.
     rewrite <- H1.
-    replace 2 with (1 + 1).
-    2: { reflexivity. }
-    rewrite <- Rplus_0_r at 1.
-    apply Rplus_le_lt_compat.
-    + apply Rle_refl.
-    + apply Rlt_0_1.
+    lra.
 Qed.
 
 (* TODO: Every S^n is (homeomorphic to) the one-point-compactification of ℝ^n.
