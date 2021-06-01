@@ -12,7 +12,10 @@ Require Import ProductTopology.
 Require Import Ensembles.
 Require Import Compactness.
 
-(* Using [Fin.t] instead of repeated application of ProductTopology2 makes that we don’t have to consider associativity. Using [Vector] instead of [ProductTopology] makes that we don’t have to always consider functional extensionality. *)
+(* Using [Fin.t] instead of repeated application of ProductTopology2 makes that
+   we don’t have to consider associativity. Using [Vector] instead of
+   [ProductTopology] makes that we don’t have to always consider functional
+   extensionality. *)
 Definition FiniteProduct (A : TopologicalSpace) (n : nat) :=
   WeakTopology (fun i : Fin.t n => fun x : t (point_set A) n => nth x i).
 
@@ -455,7 +458,7 @@ Admitted.
 (* Is the HeineBorel-property preserved by finite products? If yes, then the proof of [HeineBorel] for ℝ^n can be deduced from the proof of [HeineBorel] for ℝ, which’d make the whole stuff simpler. *)
 
 Definition Sphere (n : nat) : TopologicalSpace :=
-  SubspaceTopology (inverse_image (@EuclideanSpace_norm n) (Singleton 1)).
+  SubspaceTopology (inverse_image (@EuclideanSpace_norm (S n)) (Singleton 1)).
 
 Lemma Euclidean_norm_cts (n : nat) : continuous (@EuclideanSpace_norm n) (Y := RTop).
 Admitted.
@@ -506,5 +509,5 @@ Theorem Sphere_compact (n : nat) : compact (Sphere n).
     + apply Rlt_0_1.
 Qed.
 
-(* Conjecture: Every S^n is (homeomorphic to) the one-point-compactification of ℝ^n.
+(* TODO: Every S^n is (homeomorphic to) the one-point-compactification of ℝ^n.
 *)
